@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { pageRouter } from './pageRouter'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,20 +12,11 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/',
-    name: 'home',
+    name: 'def',
     component: () => import('@/pages/Layout.vue'),
-    redirect: '/pageA',
+    redirect: '/home',
     children: [
-      {
-        path: '/pageA',
-        name: 'pageA',
-        component: () => import('@/pages/PageA.vue')
-      },
-      {
-        path: '/pageB',
-        name: 'pageB',
-        component: () => import('@/pages/PageB.vue')
-      }
+      ...pageRouter
     ]
   }
 ]
