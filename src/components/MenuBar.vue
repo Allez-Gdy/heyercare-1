@@ -6,6 +6,7 @@ import { RouteRecordRaw, useRouter, useRoute } from 'vue-router'
 const router = useRouter()
 const route = useRoute()
 const currentPage = ref('')
+const system = navigator.userAgent.indexOf('Mac') !== -1
 
 onMounted(() => {
   currentPage.value = route.fullPath
@@ -19,7 +20,7 @@ const changeRoute = (routeRaw: RouteRecordRaw) => {
 </script>
 <template>
   <header class="flex-jc-center">
-    <div class="fn_buttons flex">
+    <div class="fn_buttons flex" :style="{right: system ? '20px' : '', left: system ? '' : 0}">
       <div class="menu-icon cs"><svg-icon icon-class="xinjian"></svg-icon></div>
       <div class="menu-icon cs"><svg-icon icon-class="shangchuan"></svg-icon></div>
     </div>
@@ -43,7 +44,6 @@ header {
   position: relative;
   .fn_buttons {
     position: absolute;
-    left: 0;
     top: 0;
     bottom: 0;
     .menu-icon {
