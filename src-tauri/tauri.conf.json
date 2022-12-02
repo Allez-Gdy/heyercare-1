@@ -54,7 +54,7 @@
       "active": true,
       "dialog": true,
       "endpoints": ["https://github.com/danyang-lab/heyercare/releases/download/updater/update.json"],
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDNFQ0MxN0M0RkU3NTdGREQKUldUZGYzWCt4QmZNUHZpVHpORGRyTnZvTHIza3h5OGkxSW5WZnpPeUxyYmNDUk4yWC8xQ2VPMHYK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IENCRkY1ODRBNTgwNjREM0YKUldRL1RRWllTbGoveTZIQ3BwdDQ3MDlKR0thb3VBNE96Y1J6aFNzVStWZGhaV2dvTG5URHhwNnEK"
     },
     "windows": [
       {
