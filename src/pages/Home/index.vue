@@ -1,19 +1,94 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-
-
+import { onMounted, reactive, ref } from 'vue';
+import Steps from './common/Steps.vue'
+let timer: NodeJS.Timeout | null = null // 节流
+const tableRef = ref<HTMLElement | null>(null)
 const tableData = reactive([
-  {}
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  },
+  {
+    operateTime: 'xxx',
+    sname: 'xxx',
+    dname: 'xxx',
+    serial: 'xxx',
+    record: 'xxx',
+  }
 ])
 const tableHeight = ref()
 
+onMounted(() => {
+  // table 动态高度
+  tableHeight.value = tableRef.value!.clientHeight
+  window.onresize = () => {
+    if(timer) {
+      return
+    }
+    timer = setTimeout(() => {
+      tableHeight.value = tableRef.value!.clientHeight
+      timer = null
+    }, 500);
+  }
+})
+
 </script>
 <template>
-  <div>
-    操作步骤
-  </div>
-  <div class="table box">
-    <!-- <el-table ref="elTableRef" :data="tableData" :height="tableHeight"
+  <Steps />
+  <div ref="tableRef" class="table box">
+    <el-table :data="tableData" :height="tableHeight"
         :default-sort="{ prop: 'date', order: 'descending' }" style="width: 100%">
         <el-table-column width="90"></el-table-column>
         <el-table-column type="index" label="序号" width="100" />
@@ -33,15 +108,13 @@ const tableHeight = ref()
         <template v-slot:empty>
           <span class="empty">当前暂无跟踪记录</span>
         </template>
-    </el-table> -->
+    </el-table>
   </div>
 </template>
 <style lang="scss" scoped>
 .table {
-  position: fixed;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  top: 170px;
+  height: calc(100vh - 330px);
+  margin: auto;
+  padding-bottom: 10px;
 }
 </style>

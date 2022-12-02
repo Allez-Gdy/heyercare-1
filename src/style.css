@@ -280,4 +280,6 @@ html .fixed {
 .box {
   background-color: #fff;
   border-radius: 10px;
+  width: 96%;
+  overflow: hidden !important;
 }
