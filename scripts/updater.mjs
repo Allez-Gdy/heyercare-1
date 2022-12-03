@@ -85,7 +85,7 @@ async function updater() {
     ]);
 
     // linux
-    await setAsset(asset, /.AppImage.tar.gz/, ['linux', 'linux-x86_64']);
+    // await setAsset(asset, /.AppImage.tar.gz/, ['linux', 'linux-x86_64']);
   });
   await Promise.allSettled(promises);
 
@@ -98,6 +98,7 @@ async function updater() {
     './updater/install.json',
     JSON.stringify(updateData, null, 2)
   );
+  console.log('JSON.stringify(updateData, null, 2)', JSON.stringify(updateData, null, 2));
   console.log('Generate updater/install.json');
 }
 
