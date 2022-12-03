@@ -75,13 +75,16 @@ async function updater() {
 
   const promises = latestRelease.assets.map(async (asset) => {
     // windows
-    await setAsset(asset, /.msi.zip/, ['win64', 'windows-x86_64']);
+    await setAsset(asset, /.msi.zip/, [
+      'win64', 
+      // 'windows-x86_64'
+    ]);
 
     // darwin
     await setAsset(asset, /.app.tar.gz/, [
       'darwin',
-      'darwin-x86_64',
-      'darwin-aarch64',
+      // 'darwin-x86_64',
+      // 'darwin-aarch64',
     ]);
 
     // linux
