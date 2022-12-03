@@ -4,7 +4,7 @@
       <div class="step1 flex">
         <div class="cs">
           <svg-icon icon-class="xinjianhuanzhe"></svg-icon>
-          <p>新建患者</p>
+          <p>新建11</p>
         </div>
         <div class="cs">
           <svg-icon icon-class="dakaihuanzhe"></svg-icon>
