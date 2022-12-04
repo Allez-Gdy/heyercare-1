@@ -4,20 +4,20 @@ import { relaunch } from "@tauri-apps/api/process";
 import { message } from '@tauri-apps/api/dialog'
 import { onMounted } from "vue";
 
-onMounted(async () => {
-  try {
-    const { shouldUpdate, manifest } = await checkUpdate();
-    if (shouldUpdate) {
-      // display dialog
-      await installUpdate();
-      // install complete, restart app
-      await relaunch();
-    }
-  } catch (error) {
-    console.log(error, 'aaa');
-    message(error as string)
-  }
-})
+// onMounted(async () => {
+//   try {
+//     const { shouldUpdate, manifest } = await checkUpdate();
+//     if (shouldUpdate) {
+//       // display dialog
+//       await installUpdate();
+//       // install complete, restart app
+//       await relaunch();
+//     }
+//   } catch (error) {
+//     console.log(error, 'aaa');
+//     message(error as string)
+//   }
+// })
 
 </script>
 
