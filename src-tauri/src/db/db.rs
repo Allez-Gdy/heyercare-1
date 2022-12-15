@@ -13,9 +13,7 @@ pub fn init_db() -> Result<()> {
 
     let flag1 = check_table_existed("table_1", &conn);
 
-    if !flag1 {
-        create_table(&conn);
-    }
+    create_table(&conn);
 
     // if !check_person_existed("Tester1", &con) {
     //     insert_person("Tester1", &con);
@@ -30,7 +28,14 @@ pub fn init_db() -> Result<()> {
 
 // 创建表
 pub fn create_table(con: &Connection) {
-    let sql : &str = "CREATE TABLE IF NOT EXISTS `patients`(`Id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Name` TEXT NOT NULL)";
+    let sql : &str = "CREATE TABLE IF NOT EXISTS `patients`(
+        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+        `name` TEXT NOT NULL,
+        `age` INTEGER  NOT NULL
+        );";
+    
+    
+    
     match con.execute(sql, params![]) {
         Ok(o) => o,
         Err(e) => panic!("{:?}", e),
@@ -41,6 +46,7 @@ pub fn create_table(con: &Connection) {
 pub fn check_table_existed(table_name: &str, con: &Connection) -> bool {
     let _sql: &str =
         "SELECT COUNT(`name`) FROM `sqlite_master` WHERE `type` = 'table' AND `name` = ?";
+    println!("_sql: {}", _sql);    
     let mut stmt = con.prepare(_sql).unwrap();
     let rs = stmt.query_row([table_name], |row| {
         return row.get(0) as Result<i32>;
