@@ -1,2 +1,1 @@
-pub mod db;
-pub mod patients;
+pub mod db_utils;

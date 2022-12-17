@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { pageRouter } from '@/router/pageRouter';
 import { RouteRecordRaw, useRouter, useRoute } from 'vue-router'
+import { invoke } from '@tauri-apps/api/tauri'
 
 const router = useRouter()
 const route = useRoute()
@@ -17,11 +18,15 @@ const changeRoute = (routeRaw: RouteRecordRaw) => {
   router.push(routeRaw.path)
 }
 
+const create_patients = () => {
+  invoke('create_patient')
+}
+
 </script>
 <template>
   <header class="flex-jc-center">
     <div class="fn_buttons flex" :style="{right: system ? '20px' : '', left: system ? '' : 0}">
-      <div class="menu-icon cs"><svg-icon icon-class="xinjian"></svg-icon></div>
+      <div class="menu-icon cs" @click="create_patients"><svg-icon icon-class="xinjian"></svg-icon></div>
       <div class="menu-icon cs"><svg-icon icon-class="shangchuan"></svg-icon></div>
     </div>
     <div class="page_menu flex flex-ai-center">
