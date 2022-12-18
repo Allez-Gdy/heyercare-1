@@ -2,7 +2,7 @@
 import MenuBar from '@/components/MenuBar.vue'
 </script>
 <template>
-  <MenuBar data-tauri-drag-region />
+  <MenuBar />
   <!-- <router-view></router-view> -->
   <!-- default – 进入和离开过渡同时发生
   in-out – 新元素的过渡先进入。然后，当前元素过渡出去。
