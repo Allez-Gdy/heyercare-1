@@ -1,6 +1,19 @@
 use crate::db::db_utils;
 use serde_json::{Value};
 
+struct Patient {
+  surname: String,
+  firstName: String,
+  gender: String,
+  birth: String,
+  height: String,
+  weight: String,
+  address: String,
+  phone: String,
+  email: String,
+  treatingDoctorId: String
+}
+
 // 添加患者
 #[tauri::command]
 pub async fn create_patient(patient_data: String) {
